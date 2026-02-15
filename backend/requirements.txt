@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+openai
+pypdf
+python-dotenv
+requests
+edge-tts
+google-generativeai

@@ -11,57 +11,37 @@ A powerful AI tool that turns PDF stories/novels into engaging Audiobooks with *
 - **🗣️ Multi-Voice TTS:** Automatically switches voices (Child, Old Man, Woman) based on the character.
 - **💸 Free & Open Source:** Uses free tiers (Gemini API) and open-source models (`edge-tts`).
 
-## 🛠️ Setup Guide
+## 📚 Documentation
 
-### prerequisites
-- A Google Account (for Gemini API Key).
-- Python 3.8+.
-- Node.js 18+.
+For detailed instructions on architecture, API keys, and deployment, please refer to the **[DOCUMENTATION.md](DOCUMENTATION.md)** file.
 
-### 1. Get Your Free API Key
-1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey).
-2. Click **Create API Key**.
-3. Copy the key.
+## 🚀 Quick Start
 
-### 2. Backend Setup
-1. Navigate to the `backend` folder:
-   ```bash
-   cd story-teller-bot/backend
-   ```
-2. Create `venv` (if possible) or run commands directly. Install dependencies:
-   ```bash
-   pip install -r requirements.txt --break-system-packages
-   ```
-3. Set up your API Key:
-   - Rename `.env.example` to `.env`.
-   - Open `.env` and paste your key: `GEMINI_API_KEY=your_copied_key_here`.
-4. Start the server:
-   ```bash
-   uvicorn main:app --reload
-   ```
+### Prerequisites
+- **Python** (v3.10+)
+- **Node.js** (v18+)
+- **Git**
+- **Google Gemini API Key** (Get it [here](https://aistudio.google.com/app/apikey))
 
-### 3. Frontend Setup
-1. Navigate to the `frontend` folder:
-   ```bash
-   cd story-teller-bot/frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Run the app:
-   ```bash
-   npm run dev
-   ```
-4. Open [http://localhost:5173](http://localhost:5173).
+### 1. Backend Setup
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+cp .env.example .env
+# Edit .env and add your GOOGLE_API_KEY
+uvicorn main:app --reload
+```
 
-## 🚀 How It Works
-1. **Upload:** You drop a PDF.
-2. **Extract:** Python reads the text.
-3. **Analyze:** Gemini AI looks at each line: *"Ah, this is the 8-year-old protagonist speaking!"*
-4. **Generate:** `edge-tts` generates that specific line in a "Child" voice.
-5. **Stitch:** All audio clips are merged into one MP3.
-6. **Download:** You get the final audiobook!
+### 2. Frontend Setup
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) to view the app.
 
 ## 🤝 Contribution
 Feel free to fork and add more voice models!
